@@ -62,4 +62,10 @@ background: linear-gradient(to right, #04161f, #16222A); /* W3C, IE 10+/ Edge, F
   span:hover{
     background-color: #f0a83e;
   }
-  
+  .savebtn{
+    margin-left: 5px;
+    background-color: rgb(37, 146, 37);
+  }
+  .savebtn:hover{
+   background-color:  rgb(92, 185, 92);
+  }
