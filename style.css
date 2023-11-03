@@ -11,7 +11,7 @@
   
   body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background: url(/public/background.jpg );
+    background: url(background.jpg );
   }
   nav{
     justify-content: center;
