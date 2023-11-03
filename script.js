@@ -1,35 +1,35 @@
 const button = document.getElementById("btn");
-const text_container = document.querySelector(".text_container");
+const list = document.querySelector(".listcontainer");
+const text = document.getElementById("add_text");
 
 button.addEventListener("click", function() {
-
-    let text = document.createElement("textarea");
-    text_container.appendChild(text);
-    text.placeholder="Enter something"
-    
+  if (text.value == "") {
+    alert("Enter something to add in a list ");
+  } else {
+    let li = document.createElement("li");
+    li.innerHTML = text.value;
+    list.appendChild(li);
 
     // Add remove button
     let crsbtn = document.createElement("span");
     crsbtn.innerHTML = "X";
-    text_container.appendChild(crsbtn);
-    // Add Save button
-    let savebtn = document.createElement("span");
-    savebtn.innerHTML = "&#10003";
-    savebtn.classList.add("savebtn")
-    text_container.appendChild(savebtn);
+    li.appendChild(crsbtn);
 
     // Attach event listener to new li element
-    crsbtn.addEventListener("click", function(a) {
-        text.remove();
-        crsbtn.remove();
-        savebtn.remove();
-        console.log("clicked");
+    li.addEventListener("click", function(a) {
+      if (a.target == li) {
+        li.classList.toggle("clicked");
+      } else {
+        li.remove();
+      }
       savedata();
     });
-   
-    savedata();
-});
 
+    // Clear input field
+    text.value = "";
+    savedata();
+  }
+});
 
 // Load saved data on page load
 window.onload = function() {
@@ -37,25 +37,25 @@ window.onload = function() {
 };
 
 // Save data to local storage
-function savedata() { 
-  localStorage.setItem("note_list", text_container.innerHTML);
+function savedata() {
+  localStorage.setItem("listItems", list.innerHTML);
 }
 
-// // Load data from local storage
-// function showdata() {
-//   if (localStorage.getItem("note_list")) {
-//     text_container.innerHTML = localStorage.getItem("note_list");
-
-//     // Attach event listeners to new textarea and span elements
-//     const textareas = document.querySelectorAll(".text_container textarea");
-//     const spans = document.querySelectorAll(".text_container span");
-//     textareas.forEach(function(textarea, index) {
-//       spans[index].addEventListener("click", function() {
-//         textarea.remove();
-//         spans[index].remove();
-//         savedata();
-//       });
-//     });
-//   }
-// }
-
+// Load data from local storage
+function showdata() {
+  if (localStorage.getItem("listItems")) {
+    list.innerHTML = localStorage.getItem("listItems");
+    // Attach event listeners to new li elements
+    const lis = document.querySelectorAll("li");
+    lis.forEach(function(checked) {
+      checked.addEventListener("click", function(a) {
+        if (a.target == checked) {
+          checked.classList.toggle("clicked");
+        } else {
+          checked.remove();
+        }
+        savedata();
+      });
+    });
+  }
+}
