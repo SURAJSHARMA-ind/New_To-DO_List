@@ -1,28 +1,26 @@
 const button = document.getElementById("btn");
 const list = document.querySelector(".listcontainer");
 const text = document.getElementById("add_text");
+const audio = new Audio("./Party Horn - Sound Effect (HD).mp3");
 
-button.addEventListener("click", function() {
+button.addEventListener("click", function () {
   if (text.value == "") {
-    alert("Enter something to add in a list ");
+    alert("Enter something to add in the list");
   } else {
+    // Create list item
     let li = document.createElement("li");
     li.innerHTML = text.value;
     list.appendChild(li);
 
-    // Add remove button
-    let crsbtn = document.createElement("span");
-    crsbtn.innerHTML = "X";
-    li.appendChild(crsbtn);
-
-    // Attach event listener to new li element
-    li.addEventListener("click", function(a) {
-      if (a.target == li) {
-        li.classList.toggle("clicked");
-      } else {
+    // Attach click event listener to the new list item
+    li.addEventListener("click", function () {
+      li.classList.toggle("clicked");
+      audio.play();
+      li.classList.add('animate__animated', 'animate__fadeOut');
+      setTimeout(() => {
         li.remove();
-      }
-      savedata();
+        savedata();
+      }, 1000);
     });
 
     // Clear input field
@@ -32,7 +30,7 @@ button.addEventListener("click", function() {
 });
 
 // Load saved data on page load
-window.onload = function() {
+window.onload = function () {
   showdata();
 };
 
@@ -47,14 +45,15 @@ function showdata() {
     list.innerHTML = localStorage.getItem("listItems");
     // Attach event listeners to new li elements
     const lis = document.querySelectorAll("li");
-    lis.forEach(function(checked) {
-      checked.addEventListener("click", function(a) {
-        if (a.target == checked) {
-          checked.classList.toggle("clicked");
-        } else {
+    lis.forEach(function (checked) {
+      checked.addEventListener("click", function () {
+        checked.classList.toggle("clicked");
+        audio.play();
+        checked.classList.add('animate__animated', 'animate__fadeOut');
+        setTimeout(() => {
           checked.remove();
-        }
-        savedata();
+          savedata();
+        },1000);
       });
     });
   }
