@@ -11,13 +11,15 @@
   
   body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-<<<<<<< HEAD
+
     background:no-repeat url(background.jpg );
     background-size: cover;
     background-repeat: repeat-y;
-=======
+
     background: url(background.jpg );
->>>>>>> 45ec163c3670e9010eefe2b034a2cdee46c7e64c
+
+    background: url(background.jpg );
+
   }
   nav{
     justify-content: center;
@@ -124,11 +126,4 @@
       min-width: 32%;
      min-height: 1rem; 
      
-    }
-<<<<<<< HEAD
-
-
-}
-=======
-}
->>>>>>> 45ec163c3670e9010eefe2b034a2cdee46c7e64c
+    }}
