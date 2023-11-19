@@ -11,21 +11,16 @@
   
   body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-    background:no-repeat url(background.jpg );
-    background-size: cover;
+    background: url(background.jpg );
     background-repeat: repeat-y;
-
-    background: url(background.jpg );
-
-    background: url(background.jpg );
+    background-size: 100dvw;
 
   }
   nav{
     justify-content: center;
     display: flex;
     height: 4rem;
-    background-color: #0c4e6d;
+    background-color: #679D9B;
     color: #ffffff;
   }
   h1{
@@ -89,7 +84,7 @@
     margin-left: 2rem;
     margin-right: 2rem;
     width: 18%;
-    height: 20vh;
+    height: 20dvh;
     position: relative;
     padding: 1rem;
     margin-bottom: 1rem;

@@ -1,7 +1,7 @@
 const button = document.getElementById("btn");
 const list = document.querySelector(".listcontainer");
 const text = document.getElementById("add_text");
-const audio = new Audio("./Party Horn - Sound Effect (HD).mp3");
+const audio = new Audio("./newsound.mp3");
 
 button.addEventListener("click", function () {
   if (text.value == "") {
